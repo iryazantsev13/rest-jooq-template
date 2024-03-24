@@ -1,0 +1,52 @@
+databaseChangeLog:
+  - changeSet:
+      id: v1.0-init-schema
+      author: Igor Ryazantsev
+      changes:
+        - createTable:
+            tableName: t_game
+            columns:
+              - column:
+                  name: id
+                  type: serial
+                  remarks: PK
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: game_id
+                  type: integer
+                  remarks: Идентификатор игры
+                  constraints:
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+                  remarks: Наименование игры
+              - column:
+                  name: price_default
+                  type: bigint
+                  remarks: Стоимость МЛС по умолчанию
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  remarks: Время последнего изменения свойств игры
+                  constraints:
+                    nullable: false
+              - column:
+                  name: deleted
+                  type: boolean
+                  remarks: Блокировка игры
+                  defaultValue: false
+                  constraints:
+                    nullable: false
+
+        - createIndex:
+            indexName: ukGameId
+            tableName: t_game
+            unique: true
+            columns:
+            - column:
+                name: game_id

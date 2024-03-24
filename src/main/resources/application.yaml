@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5431/db_game
+    username: postgres
+    password: "12345"
+  liquibase:
+    change-log: /db/migration/ddl/init-schema.yaml
+    enabled: true
+
