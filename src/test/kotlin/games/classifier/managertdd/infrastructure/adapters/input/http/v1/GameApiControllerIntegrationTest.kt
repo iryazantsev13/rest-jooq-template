@@ -3,7 +3,6 @@ package games.classifier.managertdd.infrastructure.adapters.input.http.v1
 import games.classifier.managertdd.AbstractIntegrationTest
 import games.classifier.managertdd.infrastructure.adapters.input.http.v1.dto.GameDto
 import games.classifier.managertdd.infrastructure.adapters.input.http.v1.dto.GameListDto
-import games.classifier.managertdd.infrastructure.adapters.input.http.v1.dto.GameParamsDto
 import games.classifier.managertdd.infrastructure.adapters.input.http.v1.error.ApiError
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotNull
@@ -12,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.web.client.TestRestTemplate
 import org.springframework.boot.test.web.server.LocalServerPort
 import org.springframework.http.*
-import java.util.*
 
 class GameApiControllerIntegrationTest : AbstractIntegrationTest() {
 
@@ -20,7 +18,7 @@ class GameApiControllerIntegrationTest : AbstractIntegrationTest() {
     lateinit var restTemplate: TestRestTemplate
 
     @LocalServerPort
-    lateinit var port: Integer
+    lateinit var port: Number
 
     @Test
     fun `should return 404 for request get if the game does not exist`() {
